@@ -5,6 +5,7 @@ A client named Steve had requested a stock analysis to be done on 12 green energ
 ### Background
 The original Excel VBA script that was made for the stock analysis requested only took around 0.7 seconds to analyze each year for the 12 stocks requested. However, if a large dataset such as the entire stock market needed to be analyzed, this would lead to the script taking an extended amount of time to run. By refractoring the original script to become more efficient in memory usage and thus reducing the run time of the script, the analysis of a dataset as large as the entire stock market would run much quicker.
 ### Results
+In the original script, a nested for loop was used to calculate the total volume, starting prices, and ending prices of the stocks. The first for loop would loop through each ticker and during each iteration of the loop, it would go through the second for loop to find the total volume, starting price, and ending price of the ticker iteration it was on. 
 #### Original Script
 ```
 For i = 0 To 11
