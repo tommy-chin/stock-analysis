@@ -116,6 +116,7 @@ For i = 0 To 11
         Cells(4 + i, 1).Value = tickers(i)
         Cells(4 + i, 2).Value = tickerVolumes(i)
         Cells(4 + i, 3).Value = tickerEndingPrices(i) / tickerStartingPrices(i) - 1
+    Next i
 ``` 
 #### Refractored Run Times for 2017 and 2018
 ![VBA_Challenge_2017.PNG](https://github.com/tommy-chin/stock-analysis/blob/main/VBA_Challenge_2017.PNG)
