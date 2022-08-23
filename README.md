@@ -5,7 +5,7 @@ A client named Steve had requested a stock analysis to be done on 12 green energ
 ### Background
 The original Excel VBA script that was made for the stock analysis requested only took around 0.7 seconds to analyze each year for the 12 stocks requested. However, if a large dataset such as the entire stock market needed to be analyzed, this would lead to the script taking an extended amount of time to run. By refractoring the original script to become more efficient in memory usage and thus reducing the run time of the script, the analysis of a dataset as large as the entire stock market would run much quicker.
 ### Results
-In the original script, a nested for loop was used to calculate the total volume, starting prices, and ending prices of the stocks. The first for loop would loop through each ticker and during each iteration of the loop, it would go through the second for loop to find the total volume, starting price, and ending price of the ticker iteration it was on. 
+In the original script, a nested for loop alongside if statements were used to calculate the total volume, starting prices, and ending prices of the stocks. These values were then individually outputted into the "All Stocks Analysis" worksheet as it went through the entire nested for loop. In the refractored script, a nested for loop was not used. Instead, three output arrays were created which would hold the total volumes, starting prices, and ending prices of each stock. Then, a single for loop with if statements was used to loop all of the rows in the dataset which stored all of the values needed in each individual array. Another for loop which looped through each array was used to output the values into the "All Stocks Analysis" worksheet. With the refractored script, the run time was able to go from around 0.7 seconds for each year analyzed to  
 #### Original Script
 ```
 For i = 0 To 11
@@ -42,6 +42,24 @@ For i = 0 To 11
             endingPrice = Cells(j, 6).Value
             
         End If
+        
+        Next j
+    
+    'Output results
+    Worksheets("All Stocks Analysis").Activate
+    
+    Cells(4 + i, 1).Value = ticker
+    
+    Cells(4 + i, 2).Value = totalVolume
+    
+    Cells(4 + i, 3).Value = startingPrice
+    
+    Cells(4 + i, 4).Value = endingPrice
+    
+    Cells(4 + i, 5).Value = endingPrice / startingPrice - 1
+    
+    Next i
+    
 ```
 #### Refractored Script
 ```
@@ -99,7 +117,9 @@ For i = 0 To 11
         Cells(4 + i, 2).Value = tickerVolumes(i)
         Cells(4 + i, 3).Value = tickerEndingPrices(i) / tickerStartingPrices(i) - 1
 ``` 
-### Summary
-#### Advantages and Disadvantages
+#### Refractored Run Times for 2017 and 2018
 ![VBA_Challenge_2017.PNG](https://github.com/tommy-chin/stock-analysis/blob/main/VBA_Challenge_2017.PNG)
 ![VBA_Challenge_2018.PNG](https://github.com/tommy-chin/stock-analysis/blob/main/VBA_Challenge_2018.PNG)
+### Summary
+#### Advantages and Disadvantages
+
