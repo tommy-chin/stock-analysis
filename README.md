@@ -122,6 +122,6 @@ For i = 0 To 11
 ![VBA_Challenge_2018.PNG](https://github.com/tommy-chin/stock-analysis/blob/main/VBA_Challenge_2018.PNG)
 ### Summary
 #### Advantages and Disadvantages of Refactoring
-
+Refactoring a script may lead to a much cleaner script not just visually but also practically. By refactoring, a script can be improved by reducing the amount of actions that need be performed which in turn would lead to less memory usage for the script. An original script can often times be a rough draft that is just written to accomplish a task on a small scale. However, the performance of the script may not perform as well on a larger scale so refactoring can lead to the script being able to do so more efficiently. However, refactoring a script may not always be optimal. It is possible that the original script is fairly optimal for the task it was trying to accomplish. Attempting to refactor the script may lead to unexpected bugs which would lead to time wasted in debugging. 
 #### Advantages and Disadvantages of the Original and Refactored VBA scripts
-
+As seen in the refactored run times, the refactored script was able to drastically improve the run times of the original script. These improved run times were due to less memory being used in the refactored script. If a dataset as large as the entire stock market was analyzed using the original script, it is possible that due to the amount of memory required to run the script, Excel could potentially crash during analysis. Since the refactored script was able to run the analysis nearly 10x quicker than the original, the chance of Excel crashing would be smaller. 
